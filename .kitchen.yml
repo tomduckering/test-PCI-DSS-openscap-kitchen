@@ -1,0 +1,23 @@
+---
+driver:
+  name: docker
+  use_sudo: false
+
+provisioner:
+  name: shell
+
+platforms:
+- name: centos-6.4
+  driver_config:
+    image: el6_openscap
+    platform: centos
+
+verifier:
+  name: shell
+  remote_exec: true
+  command: "oscap xccdf eval --oval-results --profile pci-dss --cpe /ssg-centos6-cpe-dictionary.xml /usr/share/xml/scap/ssg/content/ssg-rhel6-xccdf.xml"
+
+suites:
+  - name: default
+    run_list:
+    attributes:
