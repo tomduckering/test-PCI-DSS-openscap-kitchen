@@ -9,7 +9,7 @@ provisioner:
 platforms:
 - name: centos-6.4
   driver_config:
-    image: el6_openscap
+    image: tomduckering/el6_openscap
     platform: centos
 
 verifier:
